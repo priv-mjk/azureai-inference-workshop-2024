@@ -2,6 +2,7 @@
 
 ## 1. Motivation
 Building generative AI applications involves working with a wide range of language models from diverse providers.
+
  - Language models can be large (LLM) or small (SLM) in terms of model size and complexity.
  - Models can be proprietary (e.g., GPT-4 from OpenAI) or open-source (e.g., GPT-2 from HuggingFace).
  - Models can differ in their capabilities (text generation, embedding) and API features (config parameters, system prompt, stop words etc.)
@@ -19,6 +20,7 @@ Developers can now focus on building their applications for a _specific capabili
 In this workshop, we'll explore the Azure AI Model Inference API from core concepts to applied usage with various models and inference tasks. 
 
 By the end of the workshop you should be able to:
+
 1. Describe the Azure AI Inference API capabilities
 1. Describe the benefits of using the unified API
 1. Configure your application to use the unified API
@@ -33,6 +35,7 @@ By the end of the workshop you should be able to:
 - Authentication Credentials
 
 Model deployments will have default _key, endpoint, region_ properties.
+
 - Use endpoint for initializing the inference API library.
 - Use key to create a traditional authentication credential if preferred.
 - Alternatively, use Microsoft Entra ID (32-character string) for a secure managed identity solution.
@@ -45,6 +48,7 @@ Check out the [samples README](https://github.com/Azure/azure-sdk-for-python/blo
 ## 5. Supported Models
 
 Currently, we can deploy models in the Azure AI platform in one of two ways:
+
  - **Managed Compute Endpoints** - using Models as a Platform (MaaP) with subscription based pricing for [_managed inference_](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints-online?view=azureml-api-2) capability.
  - **Serveless API Endpoints** - using Models As a Service (MaaS) with token-based billing for [_pay as you go_](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-models-serverless?view=azureml-api-2&tabs=azure-studio) inference capability.
  
