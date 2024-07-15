@@ -75,10 +75,4 @@ Currently [only a subset of these models are available](https://learn.microsoft.
 
 ## 7. Get Started
 
-Step-by-step instructions will be provided in the `docs/` folder. You can view the workshop guide in your browser by opening this repository in GitHub Codespaces (or Docker Desktop) then using this command:
-
-```bash
-mkdocs serve
-```
-
-This should start the dev server at `http://localhost:8000` so you can preview the guide. You should also see a pop up a dialog with options to view the preview in the browser, or in the Visual Studio Code editor. If you miss the pop up, you can open the Visual Studio Code Terminal `Ports` tab and use the options under the _Forwarded Address_ column to take desired actions.
+You are hopefully viewing this page in the preview editor or browser. To get started, just move to the next section of this guide as seen in the sidebar.
