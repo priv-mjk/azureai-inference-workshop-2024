@@ -1,4 +1,4 @@
-# Azure AI Inference Workshop
+# Welcome Learners!
 
 ## 1. Motivation
 Building generative AI applications involves working with a wide range of language models from diverse providers.
