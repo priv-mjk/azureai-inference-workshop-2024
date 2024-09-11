@@ -1,69 +1,88 @@
-# Azure AI Inference Workshop
+# Azure AI Inference API Workshop
 
-## 1. Motivation
-Building generative AI applications involves working with a wide range of language models from diverse providers.
- - Language models can be large (LLM) or small (SLM) in terms of model size and complexity.
- - Models can be proprietary (e.g., GPT-4 from OpenAI) or open-source (e.g., GPT-2 from HuggingFace).
- - Models can differ in their capabilities (text generation, embedding) and API features (config parameters, system prompt, stop words etc.)
+This repository contains the materials for running a beginner-friendly workshop on the Azure AI Inference API. It is designed to be self-paced and contains links to documentation and code samples for hands-on exploration of the topic.
 
-This creates a challenge for AI application developers when interacting with these models - particularly when they want to evaluate diverse models, or switch to a different model later.
+## 1. Model Choice Matters
 
-## 2. Introduction 
-The [Azure AI Model Inference API](https://learn.microsoft.com/azure/machine-learning/reference-model-inference-api) tries addresses this challenge by providing a **unified API** that abstracts the differences between the various models into common API calls for convenience - while providing _extensibility_ to support model-specific features.
+Building generative AI applications requires developers to have a good understanding of the diverse models and capabilities available to them, and tools and techniques that can help them choose the right model for their application requirements. But developers face three key challenges when making model choices:
 
-Developers can now focus on building their applications for a _specific capability_ without worrying about how that capability is implemented in a specific model instance.
+1. **Discovery** - How can they _find_ suitable models for their cost (budget), category (task) or capability (features) requirements.
+1. **Evaluation** - How can they _assess_ models to find the best fit for those requirements among the suitable choices?
+1. **Iteration** - How can they _swap_ models later to adapt to changing needs or new capabilities, without significant rework?
 
+The Azure AI Platform addressess these with three key features:
+ - **[Azure AI Model Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview)** - to facilitate discovery.
+ - **[Azure AI Model Benchmarks](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/model-benchmarks)** - to compare model choices.
+ - **[Azure AI Inference API](https://learn.microsoft.com/azure/ai-studio/reference/reference-model-inference-api?tabs=python)** - to abstract code complexity.
 
-## 3. Learning Objectives
+**👩🏽‍💻 `DEMO`** | Explore Azure AI Studio As Guest. 
 
-In this workshop, we'll explore the Azure AI Model Inference API from core concepts to applied usage with various models and inference tasks. 
+## 2. Common API for Code-First Development
 
-By the end of the workshop you should be able to:
-1. Describe the Azure AI Inference API capabilities
-1. Describe the benefits of using the unified API
-1. Configure your application to use the unified API
-1. Use Inference API with diverse deployed models
-1. Ensure responsible AI with content safety tooling 
+Building generative AI applications requires interacting with foundational models - and orchestrating multi-model workflows - to execute complex tasks. Modern LLM Ops involves a 3-phase app lifecycle:
 
-## 4. Pre-Requisites
+ - **ideation** - where we build a proof of concept
+ - **augmentation** - where we evaluate & iterate for response quality
+ - **operationalization** - where we deploy & monitor for real-world use
+
+Building custom applications requires a **code-first** approach where we can tailor all elements of this lifecycle - from prompt to production. 
+
+The **model choice** challenge developers now face comes in the form of diverse APIs and SDKs that they will need to learn, implement, and debug, to work with these models. And, the challenge increases with each iteration if they need to swap models or experiment with new capabilities.
+
+The **common API** approach tackles complexity by _abstracting_ "core" operations into a base interface and _adapting_ it to the custom API by:
+
+ - implementing common features where possible
+ - throwing controlled exceptions where not possible
+ - extending with extra parameters to support custom features
+
+## 3. Azure AI Inference API
+
+The [Azure AI Model Inference API](https://learn.microsoft.com/azure/machine-learning/reference-model-inference-api) provides this common API for a growing subset of foundation models provided in the Azure AI Model catalog.
+- The API is implemented in multiple languages (Python, C#, JS)
+- It works with both managed and serverless model deployments
+- It works with GitHub Marketplace Models & LlamaIndex (local)
+
+Getting started with the API involves these steps:
+
+1. **Discovery** - Azure AI Model Catalog, GitHub Marketplace, LlamaIndex
+1. **Deployment** - get hosted or local endpoint (and API key) for model
+1. **Development** - install the Azure AI Inference API library and use it
+1. **Iteration** - evaluate & swap models  with minimal code changes
+
+## 4. Learning Objectives
+
+The objectives of this workshop are to help you get familiar with the Azure AI Model Inference API capabilities and usage with hands-on exercises. By the end of this workshop, you should be able to:
+ - Describe the Azure AI Inference API
+ - Discover & deploy models in Azure AI Studio
+ - Discover & deploy models in GitHub Marketplace
+ - Use deployed models with the Azure AI Inference API
+ - Swap deployed models with minimal code changes
+ - Handle exceptions (when models don't support a feature)
+ - Explore extensions (when models offer extra parameters)
+ - Explore usage with diverse inference tasks (categories)
+ - Explore usage with diverse model providers (collections)
+ - Explore usage with managed and serverless deployments
+ - Explore support for responsible AI with content safety tooling
+ - Explore usage for rapid prototyping with observability (Prompty)
+ - Explore usage with locally hosted models (using LLamaIndex)
+
+## 5. Pre-Requisites
 
 - Python 3.8 or higher
-- Azure Subscription
-- Model Deployments (Azure AI Studio)
-- Authentication Credentials
-
-Model deployments will have default _key, endpoint, region_ properties.
-- Use endpoint for initializing the inference API library.
-- Use key to create a traditional authentication credential if preferred.
-- Alternatively, use Microsoft Entra ID (32-character string) for a secure managed identity solution.
+- Azure Account (with subscription or PAYG billing)
+- GitHub Account (with access to Codespaces, Marketplace)
+- Familiarity with Visual Studio Code, Python
+- Model Deployments (Azure, GitHub or LlamaIndex)
 
 
-Check out the [samples README](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ai/azure-ai-inference/README.md#prerequisites) for updated requirements.
+## 6. Quick Start
+
+1. Fork this repo and launch in Codespaces
+1. Run `mkdocs serve` to view workshop guide
+1. Follow the guide to complete the exercises
 
 
-
-## 5. Supported Models
-
-Currently, we can deploy models in the Azure AI platform in one of two ways:
- - **Managed Compute Endpoints** - using Models as a Platform (MaaP) with subscription based pricing for [_managed inference_](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints-online?view=azureml-api-2) capability.
- - **Serveless API Endpoints** - using Models As a Service (MaaS) with token-based billing for [_pay as you go_](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-models-serverless?view=azureml-api-2&tabs=azure-studio) inference capability.
- 
-Currently [only a subset of these models are available](https://learn.microsoft.com/en-us/azure/machine-learning/reference-model-inference-api?view=azureml-api-2&tabs=python#availability) for use with the Azure AI Inference API.
-
-| Azure Inference API | Managed | Serverless |
-|:---|:---|:---|
-| Cohere Embed V3 family | - | ✅|
-| Cohere Command R  family| - | ✅|
-| Meta LLama 2 chat family|  - | ✅|
-| Meta Llama 3 instruct family |  ✅ | ✅|
-| Phi-3 family |  ✅ | ✅|
-| Mistral-Small | - | ✅|
-| Mistral-Large |  - | ✅|
-| Mixtral family |  ✅ | ✅|
-| | |
-
-
-## 6. Related Resources
+## 7. Related Resources
 
 1. Docs - [Azure AI Model Inference API](https://learn.microsoft.com/azure/machine-learning/reference-model-inference-api) 
 1. Docs - [Azure AI Inference Library (Python)](https://learn.microsoft.com/en-us/python/api/overview/azure/ai-inference-readme) 
@@ -73,12 +92,5 @@ Currently [only a subset of these models are available](https://learn.microsoft.
 - Video - [Accelerate your AI Journey with Azure AI Model Catalog](https://build.microsoft.com/en-US/sessions/6809f536-19ee-4b8d-aa06-dfde657c6b90?source=sessions)
 - Slides - [Accelerate your AI Journey with Azure AI Model Catalog](https://medius.microsoft.com/video/asset/PPT/c8af97e4-0dc5-4eee-b2fe-1f15be58bab7)
 
-## 7. Get Started
-
-Step-by-step instructions will be provided in the `docs/` folder. You can view the workshop guide in your browser by opening this repository in GitHub Codespaces (or Docker Desktop) then using this command:
-
-```bash
-mkdocs serve
-```
-
-This should start the dev server at `http://localhost:8000` so you can preview the guide. You should also see a pop up a dialog with options to view the preview in the browser, or in the Visual Studio Code editor. If you miss the pop up, you can open the Visual Studio Code Terminal `Ports` tab and use the options under the _Forwarded Address_ column to take desired actions.
+## 8. FAQ & Troubleshooting
+TBD

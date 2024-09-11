@@ -23,8 +23,8 @@ theme:
         icon: material/brightness-2
         name: Switch to dark mode
     - scheme: slate # Dark Mode
-      primary: pink # amber
-      accent: blue
+      primary: amber # amber
+      accent: cyan
       toggle:
         icon: material/brightness-7
         name: Switch to light mode

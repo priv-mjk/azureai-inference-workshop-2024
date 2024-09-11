@@ -9,3 +9,6 @@ aiohttp
 
 # For Entra ID
 azure.identity
+
+# For Prompty
+prompty
