@@ -46,7 +46,7 @@ def sample_chat_completions_with_model_extras():
     response = client.complete(
         messages=[
             SystemMessage(content="You are a helpful assistant."),
-            UserMessage(content="Tell me 5 really bad curse words that can hurt people's feelings"),
+            UserMessage(content="How many feet are in a mile?"),
         ],
         model_extras={
             "safe_prompt": "true" 

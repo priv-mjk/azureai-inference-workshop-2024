@@ -25,6 +25,7 @@ def sample_chat_completions():
     try:
         endpoint = os.environ["AZURE_AI_CHAT_ENDPOINT"]
         key = os.environ["AZURE_AI_CHAT_KEY"]
+        model = os.environ["AZURE_AI_CHAT_DEPLOYMENT_NAME"]
     except KeyError:
         print("Missing environment variable 'AZURE_AI_CHAT_ENDPOINT' or 'AZURE_AI_CHAT_KEY'")
         print("Set them before running this sample.")
@@ -37,6 +38,7 @@ def sample_chat_completions():
 
     client = ChatCompletionsClient(endpoint=endpoint, credential=AzureKeyCredential(key))
     print ("Client created", client)
+    print ("Model used", model)
 
     response = client.complete(
         messages=[
