@@ -1,4 +1,4 @@
-# Introduction
+# About
 
 The [Azure AI Model Inference API](https://learn.microsoft.com/en-us/azure/machine-learning/reference-model-inference-api?view=azureml-api-2&tabs=python)  enables developers to make better **model choices** by simplifying the process by which their applications interact with the model APIs.
 
