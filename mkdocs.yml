@@ -75,6 +75,9 @@ theme:
     - navigation.top
     - toc.follow
     - navigation.footer
+    - content.code.copy       # copy code blocks  
+    - content.code.select     # select line ranges
+    - content.code.clipboard  # copy to clipboard
 
 # Navigation  ...............................................
 # nav:

@@ -4,15 +4,37 @@ The OpenAI API provides a comprehensive way to access state-of-the-art AI models
 
 ## 1. Model Families & Versions
 
+The [Models Overview](https://platform.openai.com/docs/models) provides a good sense of how various models from OpenAI compare in terms of capabilities and cost. Here is a short summary:
+
+??? info "View OpenAI Model Families & Usage"
+
+    | **Model** | **Description** | 
+    |:---|:---|
+    | GPT-4o	| **Flagship model** for high-intelligence, complex, multi-step tasks |
+    GPT-4o mini	| **Affordable version** of flagship model for fast, lightweight tasks|
+    o1-preview|	**Reasoning model** (beta) trained to solve cross-domain hard problems.|
+    o1-mini|	**Reasoning model** (beta) for faster, cheaper use in coding, math, science,|
+    GPT-4 Turbo, GPT-4	|**Prior Flagship Models** for for high-intelligence tasks|
+    GPT-3.5 Turbo| **Prior Affordable version** for faster, cheaper, high-intelligence tasks |
+    DALL·E|	**Image Generation** in focus, given natural language input|
+    TTS	| **Text to Audio** in focus, given natural language input |
+    Whisper	| **Audio to Text** in focus, good for transcripts |
+    Embeddings	| **Text to Numeric Form** in focus, good for vectorization (RAG)|
+    Moderation|	**Detect sensitive or unsafe text** using this fine-tuned model|
+    | | |
+
 ## 2. Model Deployment Options
 
 Want to start exploring these? You have three options for the deploying the _foundation_ OpenAI models. Once deployed, you will need the right _authentication_ credential for that provider, to access the model from code.
 
-| Provider | Description | Auth|
-| --- | --- |--- |
-| OpenAI Deployment |  Sign up for developer access with the pay-as-you-go plan on the OpenAI platform. [Create an API key](https://platform.openai.com/docs/quickstart/create-and-export-an-api-key) and export it to an `OPENAI_API_KEY` environment variable that gets used by the default `openai` Python package. Then [explore samples](https://platform.openai.com/docs/quickstart?language-preference=python) with code. | `OPENAI_API_KEY` (project)|
-| Azure OpenAI Deployment | Get an active Azure subscription with permissions to create or use an Azure AI hub resource (requires a user role of Azure AI Developer, Contributor, or Owner). Then [deploy an Azure OpenAI model](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-openai) and explore the [playground quickstart](https://learn.microsoft.com/en-us/azure/ai-studio/quickstarts/get-started-playground) or the [code-first quickstart](https://learn.microsoft.com/en-us/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Ctypescript%2Cpython-new&pivots=programming-language-python) to try your first chat application. | Azure Managed Identity |
-|GitHub Model Marketplace | You can [find and experiment with AI models for free](https://docs.github.com/en/github-models/prototyping-with-ai-models) using a personal access token on GitHub. Then just switch the token to a paid Azure account to move from prototyping to production. **The playground is [rate limited](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits)**.|`GITHUB_TOKEN` (personal access token) |
+
+??? info "View OpenAI Model Deployment Options"
+
+    | Provider | Description | Auth|
+    | --- | --- |--- |
+    | OpenAI Deployment |  Sign up for developer access with the pay-as-you-go plan on the OpenAI platform. [Create an API key](https://platform.openai.com/docs/quickstart/create-and-export-an-api-key) and export it to an `OPENAI_API_KEY` environment variable that gets used by the default `openai` Python package. Then [explore samples](https://platform.openai.com/docs/quickstart?language-preference=python) with code. | `OPENAI_API_KEY` (project)|
+    | Azure OpenAI Deployment | Get an active Azure subscription with permissions to create or use an Azure AI hub resource (requires a user role of Azure AI Developer, Contributor, or Owner). Then [deploy an Azure OpenAI model](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-openai) and explore the [playground quickstart](https://learn.microsoft.com/en-us/azure/ai-studio/quickstarts/get-started-playground) or the [code-first quickstart](https://learn.microsoft.com/en-us/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Ctypescript%2Cpython-new&pivots=programming-language-python) to try your first chat application. | Azure Managed Identity |
+    |GitHub Model Marketplace | You can [find and experiment with AI models for free](https://docs.github.com/en/github-models/prototyping-with-ai-models) using a personal access token on GitHub. Then just switch the token to a paid Azure account to move from prototyping to production. **The playground is [rate limited](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits)**.|`GITHUB_TOKEN` (personal access token) |
 
 Note that the GitHub Model Marketplace uses Azure AI deployments of these models under the hood, so you will see an endpoint in the form `https://models.inference.ai.azure.com` with the deployed model identified in a `model` parameter passed into the API call. 
 
@@ -20,9 +42,9 @@ Note that the GitHub Model Marketplace uses Azure AI deployments of these models
 
 Based on the provider, you can use deployed models in three ways:
 
-1. **Playground** - no-code option for interactive prompt engineering.
-1. **Provider SDK** - code-first option with provider SDK (e.g., `openai` Python library)
-1. **Azure AI Inference SDK** - code-first option with common API (provider--agnostic)
+- [X] **Playground** - no-code option for interactive prompt engineering.
+- [X] **Provider SDK** - code-first option with provider SDK (e.g., `openai` Python library)
+- [X] **Azure AI Inference SDK** - code-first option with common API (provider--agnostic)
 
 The Azure AI Inference API is influenced by the OpenAI API syntax and capabilities so the transition from OpenAI SDK to Azure AI Model Inference SDK may feel more seamless.
 
@@ -31,11 +53,11 @@ Note that the GitHub Model Marketplace has samples for both the provider-specifi
 
 ## 4. Ideation with Prompty
 
-[Prompty](https://www.prompty.ai/docs) isn an _asset class and format_ for LLM prompts that is designed to enhance observability, understandability, and portability. Let's break this down:
+[Prompty](https://www.prompty.ai/docs) is an _asset class and format_ for LLM prompts that is designed to enhance observability, understandability, and portability. Let's break this down:
 
 ??? info "What is an Asset Class?"
 
-    - A [digital asset](https://business.adobe.com/blog/basics/digital-asset-management#what-is-a-digital-asset) is any type of mediat or data that is stored in a digital format. This includes images, videos, audio, documents, web pages, and code files.
+    - A [digital asset](https://business.adobe.com/blog/basics/digital-asset-management#what-is-a-digital-asset) is any type of media or data that is stored in a digital format. This includes images, videos, audio, documents, web pages, and code files.
     - An _asset class_ is a group of assets that share similar characteristics, such as the type of media or the purpose of the asset.
     - A _prompty asset_ is a digital asset that is designed to be used as a prompt template for a large language model. It uses a `.prompty` extension with a schema that adheres to the [Prompty Specification](https://www.prompty.ai/docs/prompty-specification), defined in YAML.
 
