@@ -1,6 +1,6 @@
-# 01 | Get Started
+# 2. Setup
 
-!!! tip "Using Dev Container"
+!!! tip "Dev Containers - Configuration As Code"
 
     This repository is configured with a dev container that sets up all dependencies **for the Python Inference SDK**. Simply fork the repo, launch Codespaces and start exploring. To set up your dev environment manually, or with a different language SDK, [follow these instructions](https://learn.microsoft.com/en-us/azure/machine-learning/reference-model-inference-api?view=azureml-api-2&tabs=python#inference-sdk-support). The Azure AI Model Inference API supports Python, JavaScript, C# and REST API calls.
 

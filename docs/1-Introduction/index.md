@@ -1,35 +1,48 @@
-# About
+# Introduction
 
-The [Azure AI Model Inference API](https://learn.microsoft.com/en-us/azure/machine-learning/reference-model-inference-api?view=azureml-api-2&tabs=python)  enables developers to make better **model choices** by simplifying the process by which their applications interact with the model APIs.
-
-!!! tip "Read the Documentation"
+!!! tip "Azure AI Model Inference API - 5 Resources To Start With"
     
-    1. [Azure AI Model Inference API documentation](https://learn.microsoft.com/en-us/azure/machine-learning/reference-model-inference-api?)
-    1. [Azure AI Model Inference API Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples)
-    1. [Reference API Documentation](https://aka.ms/azsdk/azure-ai-inference/python/reference)
-    1. [Blog Post: What's New in Aug 2024](https://techcommunity.microsoft.com/t5/ai-ai-platform-blog/expanding-the-azure-ai-model-inference-api-integrating-azure-ai/ba-p/4212883)
+    1. [Browse the Documentation](https://learn.microsoft.com/en-us/azure/machine-learning/reference-model-inference-api?)
+    1. [Explore the Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples)
+    1. Sep 2024: [#RAGHack - Pick the Right Model For The Right Job](https://developer.microsoft.com/reactor/events/23433/)
+    1. Aug 2024: [What's New with Azure AI Model Inference API](https://techcommunity.microsoft.com/t5/ai-ai-platform-blog/expanding-the-azure-ai-model-inference-api-integrating-azure-ai/ba-p/4212883)
+    1. May 2024: [Accelerate your AI Journey with Azure AI Model Catalog](https://build.microsoft.com/en-US/sessions/6809f536-19ee-4b8d-aa06-dfde657c6b90?source=sessions)
 
 
-## 1️⃣ | What is it?
+## 1. What is this API?
 
-1. Think of it as a **model wrapper** that abstracts common capabilities of models into a **single API** that applications interact with for a consistent developer experience.
-1. The wrapper **adapts** the incoming calls to the custom API for the specific models being used, hiding the differences and complexity from the developer.
-1. This allows developers to **swap models** with minimal changes required to application code - enabling model choice for cost and performance optimization.
+!!! example "[From the Docs](https://learn.microsoft.com/en-us/azure/machine-learning/reference-model-inference-api?view=azureml-api-2&tabs=python)"
+    The Azure AI Model Inference is an API that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions _from a diverse set of models in a uniform and consistent way_. Developers can talk with different models deployed in Azure AI Studio without changing their underlying code!
 
-## 2️⃣ | Why use it?
+Another way to think about it is that it is a _model wrapper_ that abstracts frequently-used model capabilities into a **common API** that applications can interact with, for a consistent developer experience, independent of the specific model implementing them.
 
-1. **Rapid Prototyping for Ideation**. Build your prototype quickly against the API, then try it with diverse models for best fit.
-1. **Increase Design Flexibility**. Take advantage of API extensibility to start with common capabilities, then add custom features.
-1. **Increase Deployment Flexibility** Benefit from API support for both managed compute and serverless API deployments.
-1. **Growing Ecosystem Support** Works with new GitHub Marketplace Models (cloud) and LlamaIndex models (local) for flexibility.
+- It **throws exceptions** cleanly if the underlying model lacks a specific API feature.
+- It **supports extensibility** by "passing through" custom parameters for model-unique features.
 
-## 3️⃣ | Where to use it?
+This allows us to _explore model choice_ with the same codebase, simply by swapping the model deployment details in the configuration or environment - without changing the application code. We can also _compare models_ side-by-side, by running the same code in different terminals, to contrast quality of responses or performance of execution.
 
-1. **Performance optimization** - for downstream "bottleneck" models.
-1. **Cost optimization** - scale down to cheaper models when justified.
-1. **Multi-model composition** - chain interactions or orcherstate flows.
 
-## 4️⃣ | How to use it
+## 2. Why should we use it?
+
+Building generative AI applications requires rapid prototyping and ideation, with the ability to make decisions like _model selection_, _model configuration_, _prompt template design_ and _orchestration framework_ in a flexible way. The API provides an abstraction layer between application code and model invocation interface, allowing us to evolve each side independently. This lets us do the following:
+
+1. **Rapid Ideation** - Quickly prototype against the API, then explore diverse models for best fit.
+1. **Design Flexibility** - Build for common capabilities, and extend to custom features if present.
+1. **Deploy Flexibility** - Works with Managed Compute and Serverless API model deployments.
+1. **Ecosystem Expansion** - Growing partner list e.g, GitHub Marketplace Models, LlamaIndex.
+1. **Prompty Enabled** - Prompt asset & runtime for rapid prototyping, works out-of-the-box.
+
+## 3. Where could we use it?
+
+Use it in any situation where you think **model choice matters**. For instance, _"you have a specific cost or performance target and want to see if an alternative model offers better trade-offs"_. The API lets you swap in alternative models without changing the application code, and compare the results side-by-side to make effective decisions. For example,
+
+1. **Performance optimization** - swap downstream "bottleneck" models for faster ones.
+1. **Cost optimization** - scale down to cheaper models when justified (e.g., traffic lulls)
+1. **Multi-model composition** - use different API endpoints for orchestrated flows (agentic, RAG)
+
+## 4. How would we use it?
+
+The [current version](https://learn.microsoft.com/en-us/azure/machine-learning/reference-model-inference-info?view=azureml-api-2) of the Azure AI Model Inference API supports the following endpoints, reflecting the types of inference tasks exposed using a common API. See these in action in the _Quickstart_ section of this lab.
 
 1. **Get Info** - about underlying model
 1. **Text Embeddings** - generate vectors from text
@@ -37,10 +50,8 @@ The [Azure AI Model Inference API](https://learn.microsoft.com/en-us/azure/machi
 1. **Text Completion** - single turn model response (for prompt)
 1. **Chat Completion** - multi-turn model response (for conversation)
 
+The [API samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples) showcase both _sync client_ and _async client_ usage patterns.
 
-## 5️⃣ | Handling Diversity
+---
 
-The model ecosystem is large and diverse, and evolving rapidly. The wrapped model may **NOT** map exactly onto the common API capabilities - it may lack some features and it may bring other unique ones to the table. The API is designed to handle thi with:
-
-1. **Exceptions** - The API will raise a meaningful exception if the underlying model does not support a specific API feature.
-1. **Extensions** - The API has an `extras` field that allows developers to pass through custom parameters to handle model-unique features.
+[**Next**](./1-setup.md) - Setup Environment
