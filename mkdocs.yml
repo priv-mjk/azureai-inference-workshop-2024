@@ -18,7 +18,7 @@
 
 # Project information .........................................
 site_name: "Azure AI Model Inference"
-site_url: https://nitya.github.io/azure-inference-workshop-2024
+site_url: https://nitya.github.io/azureai-inference-workshop-2024
 site_author: Nitya Narasimhan
 site_description: >-
   Using the Azure Inference API for Rapid Prototyping
